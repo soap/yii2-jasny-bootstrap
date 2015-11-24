@@ -14,7 +14,7 @@ Either add
 
 ```
     "require": {
-        "comdvas/jasny-bootstrap": "dev-master"
+        "comdvas/yii2-jasny-bootstrap": "dev-master"
     }
 ```
 
