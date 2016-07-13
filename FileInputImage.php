@@ -8,10 +8,10 @@ use comdvas\jasnybootstrap\JasnyBootstrapAsset;
 use yii\helpers\Html;
 
 /**
- * FileInput generates a jasny file input
+ * FileInputImage generates a jasny image file input
  * @since 2.0
  */
-class FileInput extends InputWidget
+class FileInputImage extends InputWidget
 {
     /**
      * @var array the HTML attributes for the input tag.
@@ -28,7 +28,7 @@ class FileInput extends InputWidget
     /**
      * @var text on select file button
      */
-    public $selectButtonTitle = 'Select file';
+    public $selectButtonTitle = 'Select image';
 
     /**
      * @var text on change file button
@@ -39,6 +39,16 @@ class FileInput extends InputWidget
      * @var text on remove file button
      */
     public $removeButtonTitle = 'Remove';
+    
+    /**
+     * @var width of preview in pix
+     */
+    public $previewWidth = '200';
+
+    /**
+     * @var width of preview in pix
+     */
+    public $previewHeight = '150';
 
     /**
      * @inheritdoc
@@ -55,24 +65,31 @@ class FileInput extends InputWidget
             $view = $this->getView();
             JasnyBootstrapAsset::register($view);
         }
+        $previewParams = [
+            'class'=>'fileinput-preview thumbnail',
+            'data-trigger'=>'fileinput',
+        ];
+        if ($this->previewWidth and $this->previewHeight) {
+            $previewParams['style'] = 'width: '.$this->previewWidth.'px; height: '.$this->previewHeight.'px;';
+        }
         return implode("\n", [
             Html::beginTag('div', [
-                'class'=>'fileinput fileinput-new input-group',
+                'class'=>'fileinput fileinput-new fileinput-image',
                 'data-provides'=>'fileinput',
             ]),
-            Html::beginTag('div', ['class'=>'form-control', 'data-trigger'=>'fileinput']),
-            Html::tag('i', '', ['class'=>'glyphicon glyphicon-file fileinput-exists']),
-            Html::tag('span', '', ['class'=>'fileinput-filename']),
+            Html::beginTag('div', $previewParams),
             Html::endTag('div'),
-            Html::beginTag('span', ['class'=>'input-group-addon btn btn-default btn-file']),
+            Html::beginTag('div'),
+            Html::beginTag('span', ['class'=>'btn btn-default btn-file']),
             Html::tag('span', $this->selectButtonTitle, ['class'=>'fileinput-new']),
             Html::tag('span', $this->changeButtonTitle, ['class'=>'fileinput-exists']),
             Html::activeFileInput($this->model, $this->attribute, $this->options),
             Html::endTag('span'),
             Html::a($this->removeButtonTitle, '#', [
-                'class'=>'input-group-addon btn btn-default fileinput-exists', 
+                'class'=>'btn btn-default fileinput-exists', 
                 'data-dismiss'=>'fileinput',
             ]),
+            Html::endTag('div'),
             Html::endTag('div'),
         ])."\n";
     }
