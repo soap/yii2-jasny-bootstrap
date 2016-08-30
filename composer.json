@@ -1,17 +1,17 @@
 {
-        "name": "comdvas/yii2-jasny-bootstrap",
+        "name": "soap/yii2-jasny-bootstrap",
         "description": "Extension for Yii 2 to work with Jasny Bootstrap",
         "keywords": ["yii2", "extension", "jasny", "bootstrap"],
         "type": "yii2-extension",
         "license": "BSD-3-Clause",
         "support": {
-                "issues": "https://github.com/comdvas/yii2-jasny-bootstrap/issues",
-                "source": "https://github.com/comdvas/yii2-jasny-bootstrap"
+                "issues": "https://github.com/soap/yii2-jasny-bootstrap/issues",
+                "source": "https://github.com/soap/yii2-jasny-bootstrap"
         },
         "minimum-stability": "dev",
         "authors": [
             {
-                "name": "Evgeny Vasiliev"
+                "name": "Prasit Gebsaap"
             }
         ],
         "require": {
@@ -19,6 +19,6 @@
             "bower-asset/jasny-bootstrap": "*"
         },    
         "autoload": {
-            "psr-4": { "comdvas\\jasnybootstrap\\": "" }
+            "psr-4": { "soap\\jasnybootstrap\\": "" }
         }
 }
