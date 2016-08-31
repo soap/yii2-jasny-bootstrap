@@ -17,6 +17,6 @@ class PlaceHolderAsset extends AssetBundle
     ];
 
     public $js = [
-        'js/holder.js'
+        'holder.js'
     ];
 }
