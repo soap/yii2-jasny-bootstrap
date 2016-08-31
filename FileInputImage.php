@@ -1,10 +1,10 @@
 <?php
 
-namespace comdvas\jasnybootstrap;
+namespace soap\jasnybootstrap;
 
 use Yii;
 use yii\widgets\InputWidget;
-use comdvas\jasnybootstrap\JasnyBootstrapAsset;
+use soap\jasnybootstrap\JasnyBootstrapAsset;
 use yii\helpers\Html;
 
 /**
@@ -39,7 +39,12 @@ class FileInputImage extends InputWidget
      * @var text on remove file button
      */
     public $removeButtonTitle = 'Remove';
-    
+
+    /**
+     * @var bool use holder.js place holder
+     */
+    public $usePlaceHolder = true;
+
     /**
      * @var width of preview in pix
      */
@@ -65,8 +70,15 @@ class FileInputImage extends InputWidget
             $view = $this->getView();
             JasnyBootstrapAsset::register($view);
         }
+
+        $previewClass = 'fileinput-preview';
+        if ($this->usePlaceHolder) {
+            $previewClass =  'fileinput-new-thumbnail';
+            PlaceHolderAsset::register($this->getView());
+        }
+
         $previewParams = [
-            'class'=>'fileinput-preview thumbnail',
+            'class'=>$previewClass.' thumbnail',
             'data-trigger'=>'fileinput',
         ];
         if ($this->previewWidth and $this->previewHeight) {
@@ -78,6 +90,7 @@ class FileInputImage extends InputWidget
                 'data-provides'=>'fileinput',
             ]),
             Html::beginTag('div', $previewParams),
+            Html::tag('img', '', ['data-src' => 'js/holder.js']),
             Html::endTag('div'),
             Html::beginTag('div'),
             Html::beginTag('span', ['class'=>'btn btn-default btn-file']),

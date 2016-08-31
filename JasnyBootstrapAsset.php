@@ -1,6 +1,6 @@
 <?php
 
-namespace comdvas\jasnybootstrap;
+namespace soap\jasnybootstrap;
 
 use yii\web\AssetBundle;
 
