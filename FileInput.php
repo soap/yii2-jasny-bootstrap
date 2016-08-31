@@ -1,10 +1,10 @@
 <?php
 
-namespace comdvas\jasnybootstrap;
+namespace soap\jasnybootstrap;
 
 use Yii;
 use yii\widgets\InputWidget;
-use comdvas\jasnybootstrap\JasnyBootstrapAsset;
+use soap\jasnybootstrap\JasnyBootstrapAsset;
 use yii\helpers\Html;
 
 /**

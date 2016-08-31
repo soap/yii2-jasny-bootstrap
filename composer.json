@@ -1,6 +1,6 @@
 {
         "name": "soap/yii2-jasny-bootstrap",
-        "description": "Extension for Yii 2 to work with Jasny Bootstrap",
+        "description": "Extension for Yii2 to work with Jasny Bootstrap",
         "keywords": ["yii2", "extension", "jasny", "bootstrap"],
         "type": "yii2-extension",
         "license": "BSD-3-Clause",
@@ -16,7 +16,8 @@
         ],
         "require": {
             "yiisoft/yii2": "*",
-            "bower-asset/jasny-bootstrap": "*"
+            "bower-asset/jasny-bootstrap": "*",
+            "bower-asset/holderjs": "*"
         },    
         "autoload": {
             "psr-4": { "soap\\jasnybootstrap\\": "" }
